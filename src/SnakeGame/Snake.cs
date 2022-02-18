@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Reflection;
 
 namespace SnakeGame;
 
@@ -36,7 +34,7 @@ public class Snake
         IsAlive = !IsHeadOnBorder(board, firstPosition) && !SnakeSelfEaten(firstPosition);
     }
 
-    public bool SnakeSelfEaten(Position firstPosition)
+    private bool SnakeSelfEaten(Position firstPosition)
     {
         return Tail.Skip(1).Any(t => t.X == firstPosition.X && t.Y == firstPosition.Y);
     }
@@ -102,31 +100,4 @@ public class Snake
         return true;
 
     }
-
-    // /// <summary>
-    // /// Test with no parameters
-    // /// </summary>
-    // public void Test()
-    // {
-    //     
-    // }
-    //
-    // /// <summary>
-    // /// Test with X
-    // /// </summary>
-    // /// <param name="x"></param>
-    // public void Test(int x)
-    // {
-    //     
-    // }
-    //
-    // /// <summary>
-    // /// Test with string
-    // /// </summary>
-    // /// <param name="test"></param>
-    // public void Test(string test)
-    // {
-    //     
-    // }
-    
 }
